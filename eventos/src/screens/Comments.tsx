@@ -1,44 +1,21 @@
-import { ScrollView, StyleSheet, Text, View, Image, Pressable,Button,FlatList } from 'react-native'
-import React, { useState,useEffect, PropsWithChildren } from 'react'
+import { ScrollView, StyleSheet, Text, View, Image, Pressable } from 'react-native'
+import React, { PropsWithChildren } from 'react'
 
 // react navigation
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
-import { useNavigation } from "@react-navigation/native";
-
 import { RootStackPramList } from "../../App"
-import Product from '../components/Product';
-type CommentsProps = PropsWithChildren<{
-  comments: Product
+type ProductProps = PropsWithChildren<{
+  product: Product
 }>
 
 type DetailsProps = NativeStackScreenProps<RootStackPramList, "Details">
 
-const Details = ({route,navigation}) => {
-  
-  const {product} = route.params
-  
+const Comments = ({route}) => {
 
   return (
-    <View>
-  <ScrollView
-  horizontal={true}
-  showsHorizontalScrollIndicator={false}
-  pagingEnabled={true}
-  >
-  <Text>{product.name}</Text>
-  <Pressable
-              onPress={() => {
-                navigation.navigate('FormComments', {
-                  texto: 'texto lazaro'
-                })
-              }}
-            >
-  <Text style={styles.tagBadge}>IRRRRRRRR</Text>
-            </Pressable>
-  </ScrollView>
-
-  </View>
-  
+    <ScrollView style={styles.container}>
+      <Text></Text>
+    </ScrollView>
   )
 }
 
@@ -128,4 +105,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Details
+export default Comments

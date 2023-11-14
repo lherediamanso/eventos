@@ -14,6 +14,7 @@ export const PRODUCTS_LIST: Product[] = [
         '12MP Dual Rear Camera',
         '15.49 cm (6.1 inch) Super Retina XDR Display',
       ],
+      description: 'Para toda lafamilia de comida mexicana',
     },
     {
       id: '2',
@@ -26,6 +27,8 @@ export const PRODUCTS_LIST: Product[] = [
       rating: 4.7,
       ratingCount: 8794,
       tags: ['12MP Front Camera', '15.49 cm (6.1 inch) Super Retina XDR Display'],
+      description: 'Para toda lafamilia de comida mexicana',
+
     },
     {
       id: '3',
@@ -38,6 +41,8 @@ export const PRODUCTS_LIST: Product[] = [
       rating: 4.7,
       ratingCount: 8794,
       tags: ['12MP Dual Rear Camera', '15.49 cm Super Retina XDR Display'],
+      description: 'Para toda lafamilia de comida mexicana',
+
     },
     {
       id: '4',
@@ -54,6 +59,76 @@ export const PRODUCTS_LIST: Product[] = [
         '12MP Dual Rear Camera',
         '15.49 cm (6.1 inch) Super Retina XDR Display',
       ],
+      description: 'Para toda lafamilia de comida mexicana',
+
+    },
+    {
+      id: '5',
+      name: 'APPLE iPhone 14 (Blue, 128 GB)',
+      imageUrl:
+        'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
+      originalPrice: 79990,
+      discountPrice: 65999,
+      offerPercentage: 17,
+      rating: 4.7,
+      ratingCount: 8794,
+      tags: [
+        '12MP Front Camera',
+        '12MP Dual Rear Camera',
+        '15.49 cm (6.1 inch) Super Retina XDR Display',
+      ],
+      description: 'Para toda lafamilia de comida mexicana',
+    },
+    {
+      id: '6',
+      name: 'APPLE iPhone 14 (Blue, 128 GB)',
+      imageUrl:
+        'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
+      originalPrice: 79990,
+      discountPrice: 65999,
+      offerPercentage: 17,
+      rating: 4.7,
+      ratingCount: 8794,
+      tags: [
+        '12MP Front Camera',
+        '12MP Dual Rear Camera',
+        '15.49 cm (6.1 inch) Super Retina XDR Display',
+      ],
+      description: 'Para toda lafamilia de comida mexicana',
+    },
+    {
+      id: '7',
+      name: 'APPLE iPhone 14 (Blue, 128 GB)',
+      imageUrl:
+        'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
+      originalPrice: 79990,
+      discountPrice: 65999,
+      offerPercentage: 17,
+      rating: 4.7,
+      ratingCount: 8794,
+      tags: [
+        '12MP Front Camera',
+        '12MP Dual Rear Camera',
+        '15.49 cm (6.1 inch) Super Retina XDR Display',
+      ],
+      description: 'Para toda lafamilia de comida mexicana',
+    },
+    {
+      id: '8',
+      name: 'APPLE iPhone 14 (Blue, 128 GB)',
+      imageUrl:
+        'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
+      originalPrice: 79990,
+      discountPrice: 65999,
+      offerPercentage: 17,
+      rating: 4.7,
+      ratingCount: 8794,
+      tags: [
+        '12MP Front Camera',
+        '12MP Dual Rear Camera',
+        '15.49 cm (6.1 inch) Super Retina XDR Display',
+      ],
+      description: 'Para toda lafamilia de comida mexicana',
     },
   ];
   

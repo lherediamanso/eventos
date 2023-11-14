@@ -9,9 +9,15 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack"
 import Home from './src/screens/Home'
 import FormComments from './src/screens/FormComments'
 import Details from './src/screens/Details'
+import Index from './src/screens/index'
+
 
 export type RootStackPramList = {
-  Home: undefined;
+  Index: undefined;
+
+  Details: {product:Product};
+  //FormComments: {texto:string};
+
 }
 
 const Stack = createNativeStackNavigator<RootStackPramList>()
@@ -19,14 +25,15 @@ const Stack = createNativeStackNavigator<RootStackPramList>()
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
+      <Stack.Navigator initialRouteName='Index'>
         <Stack.Screen
-        name="Home"
-        component={Home}
+        name="Index"
+        component={Index}
         options={{
-          title: "Trending Products"
+          title: "Home"
         }}
         />
+        
         <Stack.Screen
         name="Details"
         component={Details}

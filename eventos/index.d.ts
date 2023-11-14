@@ -7,6 +7,7 @@ interface Product {
     offerPercentage: number;
     rating: number;
     ratingCount: number;
+    description:string;
     tags: string[]
 }
 

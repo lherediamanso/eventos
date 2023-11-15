@@ -5,26 +5,16 @@ import React from 'react'
 import {NativeStackScreenProps} from "@react-navigation/native-stack"
 import {RootStackPramList} from "../../App"
 
-import ProductItem from '../components/ProductItem'
-import Separator from '../components/Separator'
 
 // data
-import { PRODUCTS_LIST } from '../data/contants'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Home from "./Home"
-import Comments from './Comments'
-import FormComments from './FormComments'
+import Events from './Events'
 
 type IndexProps = NativeStackScreenProps<RootStackPramList, "Index">
 const Tab = createMaterialTopTabNavigator();
 
-function HomeScreen() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home!</Text>
-      </View>
-    );
-  }
+
   
 const Index = ({navigation}: IndexProps) => {
   return (
@@ -36,7 +26,8 @@ const Index = ({navigation}: IndexProps) => {
         }}
       >
                 <Tab.Screen name="Home" component={Home} />
-                <Tab.Screen name="Comments" component={FormComments} />
+                <Tab.Screen name="eventos" component={Events} />
+
 
       </Tab.Navigator>
   )

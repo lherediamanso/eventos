@@ -1,28 +1,46 @@
 import { ScrollView, StyleSheet, Text, View, Image, Pressable,Button,FlatList } from 'react-native'
 import React, { useState,useEffect, PropsWithChildren } from 'react'
 
+// react navigation
+import { NativeStackScreenProps } from "@react-navigation/native-stack"
+import { useNavigation } from "@react-navigation/native";
 
+import { RootStackPramList } from "../../App"
+import Events from '../components/Eventos';
 
+type DetailsEventProps = NativeStackScreenProps<RootStackPramList, "DetailsEvents">
 
-const Details = ({route,navigation}) => {
+const DetailsEvents = ({route,navigation}) => {
+  const {event} = route.params
+
+  const [coment1,setComment]=useState(
+    event
+)
+useEffect(() => {
+      coment1.comentarios[event.id-1]={
+        id:'4',
+        name:'leandro'
+      }
+      setComment(coment1)
   
-  const {product} = route.params
+}, []);
   
 
   return (
     <View>
+       <Text>{event.id}</Text>
   <ScrollView
   horizontal={true}
   showsHorizontalScrollIndicator={false}
   pagingEnabled={true}
   >
-  <Text>{product.name}</Text>
+
   <Pressable
               onPress={() => {
-                navigation.navigate('FormComments',{coment:{id:'12',name:'lus'}})
+                navigation.navigate('FormComments',{event:coment1})
               }}
             >
-  <Text style={styles.tagBadge}>IRRRRRRRR</Text>
+  <Text style={styles.tagBadge}>Comentario</Text>
             </Pressable>
   </ScrollView>
 
@@ -117,4 +135,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Details
+export default DetailsEvents

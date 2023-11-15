@@ -1,16 +1,21 @@
 import { FlatList, Pressable, StyleSheet, Text, View, Image,ScrollView, SafeAreaView,Button, Touchable, TouchableOpacity} from 'react-native'
+import React, { useEffect, useState,PropsWithChildren } from 'react'
 
+//React navigation
+import {NativeStackScreenProps} from "@react-navigation/native-stack"
+import {RootStackPramList} from "../../App"
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
+import ProductItem from '../components/ProductItem'
 import Separator from '../components/Separator'
-import Product from '../components/Product'
+import Eventos from '../components/Eventos'
 
 
-// data
-import { PRODUCTS_LIST } from '../data/contants'
+import { EVENTOS_LIST } from '../data/contants'
 
 
-const Home = ({navigation}) => {
-  
+
+const Events = ({route,navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
@@ -32,18 +37,18 @@ const Home = ({navigation}) => {
   pagingEnabled={true}
   >
   <FlatList
-      data={PRODUCTS_LIST}
+      data={EVENTOS_LIST}
       keyExtractor={item => item.id}
       ItemSeparatorComponent={Separator}
       renderItem={({item}) => (
         <Pressable
         onPress={() => {
-          navigation.navigate('Details', {
-            product: item
+          navigation.navigate('DetailsEvents', {
+            event: item
           })
         }}
         >
-        <Product product={item}/>
+        <Eventos event={item}/>
 
         </Pressable>
       )}
@@ -165,4 +170,4 @@ text: {
 },
 });
 
-export default Home
+export default Events

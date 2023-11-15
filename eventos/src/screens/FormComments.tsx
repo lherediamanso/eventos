@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
+
 import {
     SafeAreaView,
     StyleSheet,
@@ -25,7 +25,13 @@ const _iconStyle = (borderColor: string) => ({
 });
 
 const styles = StyleSheet.create({
-    // Pagina
+    container: { marginTop: 24 },
+    verticalStyle: { marginTop: 16 },
+    textStyle: { textDecorationLine: "none" },
+    iconImageStyle: { height: 20, width: 20 },
+    appContainer: {
+        flex: 1,
+    },
     formContainer: {
         margin: 8,
         padding: 8,
@@ -35,41 +41,38 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         marginBottom: 15,
     },
+    subTitle: {
+        fontSize: 26,
+        fontWeight: '600',
+        marginBottom: 2,
+    },
+    description: {
+        color: '#758283',
+        marginBottom: 8,
+    },
     heading: {
         fontSize: 15,
     },
-    // Formulario
     inputWrapper: {
         marginBottom: 15,
         alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'row',
     },
-    //Input Nombre
     inputColumn: {
         flexDirection: 'column',
     },
     inputStyle: {
         padding: 8,
-        width: '100%',
+        width: '30%',
         borderWidth: 1,
         borderRadius: 4,
         borderColor: '#16213e',
     },
-    // Estilos del checkbox
-    container: { marginTop: 24 },
-    verticalStyle: { marginTop: 16 },
-    textStyle: { textDecorationLine: "none" },
-    iconImageStyle: { height: 20, width: 20 },
-    //Input Nombre
-    textAreaStyle: {
-        padding: 8,
-        borderWidth: 1,
-        borderRadius: 4,
-        borderColor: '#16213e',
-        marginBottom: 10
+    errorText: {
+        fontSize: 12,
+        color: '#ff0d10',
     },
-    // Botones
     formActions: {
         flexDirection: 'row',
         justifyContent: 'center',
@@ -79,20 +82,48 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 8,
         marginHorizontal: 8,
-        backgroundColor: '#065CC6',
+        backgroundColor: '#5DA3FA',
     },
     primaryBtnTxt: {
         color: '#fff',
         textAlign: 'center',
         fontWeight: '700',
     },
-    hiddenInput: {
-        width: 0,
-        height: 0,
+    secondaryBtn: {
+        width: 120,
+        padding: 10,
+        borderRadius: 8,
+        marginHorizontal: 8,
+        backgroundColor: '#CAD5E2',
+    },
+    secondaryBtnTxt: {
+        textAlign: 'center',
+    },
+    card: {
+        padding: 12,
+        borderRadius: 6,
+        marginHorizontal: 12,
+    },
+    cardElevated: {
+        backgroundColor: '#ffffff',
+        elevation: 1,
+        shadowOffset: {
+            width: 1,
+            height: 1,
+        },
+        shadowColor: '#333',
+        shadowOpacity: 0.2,
+        shadowRadius: 2,
+    },
+    generatedPassword: {
+        fontSize: 22,
+        textAlign: 'center',
+        marginBottom: 12,
+        color: '#000'
     },
 });
 
-const optionsCalifica: ICheckboxButton[] = [
+const staticData: ICheckboxButton[] = [
     {
         id: 1,
         fillColor: "#fc0000",
@@ -132,14 +163,15 @@ const optionsCalifica: ICheckboxButton[] = [
 
 type FormCommentsProps = NativeStackScreenProps<RootStackPramList, "FormComments">
 
-var calificaSelected:string | number = null
 
-const FormComments = ({ navigation }: FormCommentsProps) => {
+const FormComments = ({route}:FormCommentsProps) => {
+    const {event}=route.params;
+    const post=parseInt(event.id)-1
     const horizontalCheckboxGroupContainer = () => (
         <>
-            <View>
-                <Text style={styles.heading}>
-                    Califica el evento (rojo: Malo, Verde: Bueno)
+            <View style={{  }}>
+                <Text style={{ color: "#a8a8ac", fontWeight: "500", fontSize: 16 }}>
+                    Califica <Text>{event.comentarios[post].id}</Text> el eventos (rojo: Malo, Verde: Bueno)
                 </Text>
             </View>
             <View
@@ -151,32 +183,17 @@ const FormComments = ({ navigation }: FormCommentsProps) => {
                 }}
             >
                 <BouncyCheckboxGroup
-                    data={optionsCalifica}
+                    data={staticData}
                     onChange={(selectedItem: ICheckboxButton) => {
-                        calificaSelected = selectedItem.id
-                        console.log("Seleccionado: ", JSON.stringify(selectedItem));
+                        console.log("SelectedItem: ", JSON.stringify(selectedItem));
                     }}
                 />
             </View>
         </>
     );
 
-    const guardarComentario = (nombre: string, califica: string | number, comentario: string) => {
-        console.log('nom',nombre)
-        console.log('cal',califica)
-        console.log('com',comentario)
+    const generatePasswordString = (passwordLength: number) => {
     }
-
-    //Validaciones del formulario
-    const validationSchema = Yup.object().shape({
-        nombre: Yup.string()
-            .required('')
-            .min(3, ''),
-        comentario: Yup.string()
-            .required('')
-            .min(10, ''),
-    });
-
 
     return (
         <>
@@ -185,16 +202,10 @@ const FormComments = ({ navigation }: FormCommentsProps) => {
                     <Text style={styles.title}>Adicionar Comentario</Text>
                     {/* COMPONENTE FORMIK */}
                     <Formik
-                        initialValues={{
-                            nombre: '',
-                            califica: '',
-                            comentario: ''
-                        }}
-                        validationSchema={validationSchema}
+                        initialValues={{ passwordLength: '' }}
                         onSubmit={(values) => {
-                            guardarComentario(String(values.nombre), calificaSelected, String(values.comentario))
+                            generatePasswordString(Number(values.passwordLength))
                             console.log(values)
-                            console.log('califica',calificaSelected)
                         }}
                     >
                         {({
@@ -204,39 +215,30 @@ const FormComments = ({ navigation }: FormCommentsProps) => {
                             isValid,
                             handleChange,
                             handleSubmit,
+                            handleReset,
+                            /* and other goodies */
                         }) => (
                             <>
                                 <View style={styles.inputWrapper}>
                                     <View style={styles.inputColumn}>
-                                        <Text style={styles.heading}>Nombre</Text>
+                                        <Text style={styles.heading}>Longitud Password</Text>
                                     </View>
                                 </View>
                                 <TextInput
                                     style={styles.inputStyle}
-                                    value={values.nombre}
-                                    onChangeText={handleChange('nombre')}
-                                    placeholder='Nombre'
-                                    placeholderTextColor="#878787"
+                                    value={values.passwordLength}
+                                    onChangeText={handleChange('passwordLength')}
+                                    placeholder='0'
                                     keyboardType='default'
-                                    error={errors.nombre}
                                 />
 
                                 <View style={styles.container}>
                                     {horizontalCheckboxGroupContainer()}
                                 </View>
-
-                                <View style={styles.inputWrapper}>
-                                    <View style={styles.inputColumn}>
-                                        <Text style={styles.heading}>Comentario</Text>
-                                    </View>
-                                </View>
                                 <textarea
                                     name='comentario'
-                                    style={styles.textAreaStyle}
-                                    placeholder='Comentario'
-                                    value={values.comentario}
-                                    onChange={handleChange('comentario')}
-                                    rows="5"
+                                    style={styles.inputStyle}
+                                    placeholder='0'
                                 />
 
                                 {/* BOTONES */}
@@ -247,7 +249,16 @@ const FormComments = ({ navigation }: FormCommentsProps) => {
                                         disabled={!isValid}
                                         onPress={handleSubmit}
                                     >
-                                        <Text style={styles.primaryBtnTxt}>Enviar</Text>
+                                        <Text style={styles.primaryBtnTxt}>Generar Password</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        style={styles.secondaryBtn}
+                                        onPress={() => {
+                                            handleReset();
+                                            resetPasswordState()
+                                        }}
+                                    >
+                                        <Text style={styles.secondaryBtnTxt}>Reset</Text>
                                     </TouchableOpacity>
                                 </View>
                             </>

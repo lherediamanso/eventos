@@ -132,3 +132,41 @@ export const PRODUCTS_LIST: Product[] = [
     },
   ];
   
+export const EVENTOS_LIST: Eventos[] = [
+  {
+    id: '1',
+    name: 'comida mexicana',
+    imageUrl:'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
+    fecha: '12/10/2023',
+    lugar: 'Ecuador',
+    descripcion: 'lo mas barato',
+    comentarios: [
+      {id: '1',
+        name: 'perfecto',
+        calificacion: 6,
+        comentario: 'ok'},
+        {id: '2',
+          name: 'bien',
+          calificacion: 6,
+          comentario: 'ok'}
+    ]
+  },
+  {
+    id: '2',
+    name: 'comida chilena',
+    imageUrl:'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
+    fecha: '12/10/2023',
+    lugar: 'Ecuador',
+    descripcion: 'lo mas barato',
+    comentarios: [
+      {id: '1',
+        name: 'perfecto',
+        calificacion: 7,
+        comentario: 'ok'},
+        {id: '2',
+          name: 'bien',
+          calificacion: 6,
+          comentario: 'ok'}
+    ]
+  }
+]

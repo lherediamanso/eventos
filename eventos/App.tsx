@@ -10,15 +10,22 @@ import Home from './src/screens/Home'
 import FormComments from './src/screens/FormComments'
 import Details from './src/screens/Details'
 import Index from './src/screens/index'
+import Comments from './src/screens/Comments'
+import DetailsEvents from './src/screens/DetailsEvents'
 
 
 export type RootStackPramList = {
   Index: undefined;
-
+  Comments:undefined;
   Details: {product:Product};
-  //FormComments: {texto:string};
+  DetailsEvents: {product:Product};
+
+  FormComments: {event:Eventos};
+  Eventos: {events:Eventos};
+
 
 }
+
 
 const Stack = createNativeStackNavigator<RootStackPramList>()
 
@@ -33,21 +40,35 @@ const App = () => {
           title: "Home"
         }}
         />
-        
         <Stack.Screen
         name="Details"
         component={Details}
         options={{
-          title: "Detalle de evento"
+          title: "Details"
+        }}
+        />
+        <Stack.Screen
+        name="DetailsEvents"
+        component={DetailsEvents}
+        options={{
+          title: "DetailsEvents"
+        }}
+        />
+         <Stack.Screen
+        name="Comments"
+        component={Comments}
+        options={{
+          title: "Comments"
         }}
         />
         <Stack.Screen
         name="FormComments"
         component={FormComments}
         options={{
-          title: "Adicionar Comentario"
+          title: "Comments"
         }}
         />
+      
       </Stack.Navigator>
     </NavigationContainer>
   )

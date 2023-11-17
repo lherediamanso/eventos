@@ -8,10 +8,10 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack"
 // screens
 import Home from './src/screens/Home'
 import FormComments from './src/screens/FormComments'
-import Details from './src/screens/Details'
 import Index from './src/screens/index'
 import Comments from './src/screens/Comments'
 import DetailsEvents from './src/screens/DetailsEvents'
+import Events from './src/screens/Events'
 
 
 export type RootStackPramList = {
@@ -19,11 +19,8 @@ export type RootStackPramList = {
   Comments:undefined;
   Details: {product:Product};
   DetailsEvents: {product:Product};
-
   FormComments: {event:Eventos};
   Eventos: {events:Eventos};
-
-
 }
 
 
@@ -39,14 +36,7 @@ const App = () => {
         options={{
           title: "Home"
         }}
-        />
-        <Stack.Screen
-        name="Details"
-        component={Details}
-        options={{
-          title: "Details"
-        }}
-        />
+        />       
         <Stack.Screen
         name="DetailsEvents"
         component={DetailsEvents}
@@ -68,7 +58,13 @@ const App = () => {
           title: "Comments"
         }}
         />
-      
+      <Stack.Screen
+        name="Eventos"
+        component={Events}
+        options={{
+          title: "Eventos"
+        }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )

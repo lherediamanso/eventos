@@ -1,172 +1,68 @@
-export const PRODUCTS_LIST: Product[] = [
-    {
-      id: '1',
-      name: 'APPLE iPhone 14 (Blue, 128 GB)',
-      imageUrl:
-        'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
-      originalPrice: 79990,
-      discountPrice: 65999,
-      offerPercentage: 17,
-      rating: 4.7,
-      ratingCount: 8794,
-      tags: [
-        '12MP Front Camera',
-        '12MP Dual Rear Camera',
-        '15.49 cm (6.1 inch) Super Retina XDR Display',
-      ],
-      description: 'Para toda lafamilia de comida mexicana',
-    },
-    {
-      id: '2',
-      name: 'APPLE iPhone 14 (Starlight, 256 GB)',
-      imageUrl:
-        'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/m/o/b/-original-imaghx9qkugtbfrn.jpeg',
-      originalPrice: 89900,
-      discountPrice: 75999,
-      offerPercentage: 15,
-      rating: 4.7,
-      ratingCount: 8794,
-      tags: ['12MP Front Camera', '15.49 cm (6.1 inch) Super Retina XDR Display'],
-      description: 'Para toda lafamilia de comida mexicana',
-
-    },
-    {
-      id: '3',
-      name: 'APPLE iPhone 14 (Purple, 128 GB)',
-      imageUrl:
-        'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/b/u/f/-original-imaghxa5hvapbfds.jpeg',
-      originalPrice: 79990,
-      discountPrice: 66999,
-      offerPercentage: 16,
-      rating: 4.7,
-      ratingCount: 8794,
-      tags: ['12MP Dual Rear Camera', '15.49 cm Super Retina XDR Display'],
-      description: 'Para toda lafamilia de comida mexicana',
-
-    },
-    {
-      id: '4',
-      name: 'APPLE iPhone 11 (White, 64 GB)',
-      imageUrl:
-        'https://rukminim1.flixcart.com/image/300/400/k2jbyq80pkrrdj/mobile-refurbished/k/y/d/iphone-11-256-u-mwm82hn-a-apple-0-original-imafkg25mhaztxns.jpeg',
-      originalPrice: 43900,
-      discountPrice: 38999,
-      offerPercentage: 11,
-      rating: 4.6,
-      ratingCount: 180810,
-      tags: [
-        '12MP Front Camera',
-        '12MP Dual Rear Camera',
-        '15.49 cm (6.1 inch) Super Retina XDR Display',
-      ],
-      description: 'Para toda lafamilia de comida mexicana',
-
-    },
-    {
-      id: '5',
-      name: 'APPLE iPhone 14 (Blue, 128 GB)',
-      imageUrl:
-        'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
-      originalPrice: 79990,
-      discountPrice: 65999,
-      offerPercentage: 17,
-      rating: 4.7,
-      ratingCount: 8794,
-      tags: [
-        '12MP Front Camera',
-        '12MP Dual Rear Camera',
-        '15.49 cm (6.1 inch) Super Retina XDR Display',
-      ],
-      description: 'Para toda lafamilia de comida mexicana',
-    },
-    {
-      id: '6',
-      name: 'APPLE iPhone 14 (Blue, 128 GB)',
-      imageUrl:
-        'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
-      originalPrice: 79990,
-      discountPrice: 65999,
-      offerPercentage: 17,
-      rating: 4.7,
-      ratingCount: 8794,
-      tags: [
-        '12MP Front Camera',
-        '12MP Dual Rear Camera',
-        '15.49 cm (6.1 inch) Super Retina XDR Display',
-      ],
-      description: 'Para toda lafamilia de comida mexicana',
-    },
-    {
-      id: '7',
-      name: 'APPLE iPhone 14 (Blue, 128 GB)',
-      imageUrl:
-        'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
-      originalPrice: 79990,
-      discountPrice: 65999,
-      offerPercentage: 17,
-      rating: 4.7,
-      ratingCount: 8794,
-      tags: [
-        '12MP Front Camera',
-        '12MP Dual Rear Camera',
-        '15.49 cm (6.1 inch) Super Retina XDR Display',
-      ],
-      description: 'Para toda lafamilia de comida mexicana',
-    },
-    {
-      id: '8',
-      name: 'APPLE iPhone 14 (Blue, 128 GB)',
-      imageUrl:
-        'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
-      originalPrice: 79990,
-      discountPrice: 65999,
-      offerPercentage: 17,
-      rating: 4.7,
-      ratingCount: 8794,
-      tags: [
-        '12MP Front Camera',
-        '12MP Dual Rear Camera',
-        '15.49 cm (6.1 inch) Super Retina XDR Display',
-      ],
-      description: 'Para toda lafamilia de comida mexicana',
-    },
-  ];
-  
 export const EVENTOS_LIST: Eventos[] = [
   {
     id: '1',
-    name: 'comida mexicana',
-    imageUrl:'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
-    fecha: '12/10/2023',
-    lugar: 'Ecuador',
-    descripcion: 'lo mas barato',
+    name: 'Comida mexicana',
+    imageUrl: 'https://i.ibb.co/JqBYrM9/burrata-cocina-oven-reservas-1024x683.jpg',
+    fecha: '13/12/2023',
+    lugar: 'México',
+    descripcion: 'Lorem ipsum dolor sit amet, quam vel, justo nulla eu curabitur erat vestibulum platea. ',
     comentarios: [
-      {id: '1',
-        name: 'perfecto',
+      {
+        id: '1',
+        name: 'Ultricies',
         calificacion: 6,
-        comentario: 'ok'},
-        {id: '2',
-          name: 'bien',
-          calificacion: 6,
-          comentario: 'ok'}
+        comentario: 'A dui, maecenas dictumst.'
+      },
+      {
+        id: '2',
+        name: 'Luctus',
+        calificacion: 6,
+        comentario: 'Velit lectus, faucibus a vitae.'
+      }
     ]
   },
   {
     id: '2',
-    name: 'comida chilena',
-    imageUrl:'https://rukminim1.flixcart.com/image/300/400/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg',
-    fecha: '12/10/2023',
-    lugar: 'Ecuador',
-    descripcion: 'lo mas barato',
+    name: 'Comida uruguaya',
+    imageUrl: 'https://i.ibb.co/bL0GHp7/El-gran-aporte-rabe-a-la-gastronom-a-mundial.jpg',
+    fecha: '11/12/2023',
+    lugar: 'Uruguay',
+    descripcion: 'Nec ultricies nulla elit praesent in pretium, phasellus vestibulum morbi magna libero, sed ullamcorper tenetur congue in. ',
     comentarios: [
-      {id: '1',
-        name: 'perfecto',
+      {
+        id: '1',
+        name: 'Aenean',
         calificacion: 7,
-        comentario: 'ok'},
-        {id: '2',
-          name: 'bien',
-          calificacion: 6,
-          comentario: 'ok'}
+        comentario: 'Dui consequat, etiam pellentesque. '
+      },
+      {
+        id: '2',
+        name: 'Consequat',
+        calificacion: 6,
+        comentario: 'Pulvinar molestie libero, integer nam odio. '
+      }
+    ]
+  },
+  {
+    id: '3',
+    name: 'Comida ecuatoriana',
+    imageUrl: 'https://i.ibb.co/qxMgWwV/5-gastronomia-paises-mundo.png',
+    fecha: '12/12/2023',
+    lugar: 'Ecuador',
+    descripcion: 'Rutrum libero sapien, est est euismod, tempus in mollis dolor.',
+    comentarios: [
+      {
+        id: '1',
+        name: 'Arcu',
+        calificacion: 7,
+        comentario: 'Etiam tempor, sed sit nullam, fusce proin.'
+      },
+      {
+        id: '2',
+        name: 'Egestas',
+        calificacion: 6,
+        comentario: 'Mattis dignissim, aliquam sollicitudin lorem.'
+      }
     ]
   }
 ]

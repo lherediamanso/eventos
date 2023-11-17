@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -31,9 +31,10 @@ const styles = StyleSheet.create({
         padding: 8,
     },
     title: {
-        fontSize: 32,
+        fontSize: 18,
         fontWeight: '600',
         marginBottom: 15,
+        alignSelf: 'center'
     },
     heading: {
         fontSize: 15,
@@ -132,9 +133,16 @@ const optionsCalifica: ICheckboxButton[] = [
 
 type FormCommentsProps = NativeStackScreenProps<RootStackPramList, "FormComments">
 
-var calificaSelected:string | number = null
+var calificaSelected: string | number = null
 
-const FormComments = ({ navigation }: FormCommentsProps) => {
+const FormComments = ({ navigation, route }: FormCommentsProps) => {
+
+    const { event } = route.params
+
+    const [coment1, setComment] = useState(
+        event
+    )
+
     const horizontalCheckboxGroupContainer = () => (
         <>
             <View>
@@ -161,10 +169,21 @@ const FormComments = ({ navigation }: FormCommentsProps) => {
         </>
     );
 
-    const guardarComentario = (nombre: string, califica: string | number, comentario: string) => {
-        console.log('nom',nombre)
-        console.log('cal',califica)
-        console.log('com',comentario)
+    const guardarComentario = (evento: Eventos, nombre: string, califica: string | number, comentario: string) => {
+        console.log('nom', nombre)
+        console.log('cal', califica)
+        console.log('com', comentario)
+
+        let comentarioObj = {
+            id: '4',
+            name: nombre,
+            calificacion: Number(califica),
+            comentario: comentario
+        };
+        console.log(evento)
+        console.log(comentarioObj);
+
+        
     }
 
     //Validaciones del formulario
@@ -192,9 +211,9 @@ const FormComments = ({ navigation }: FormCommentsProps) => {
                         }}
                         validationSchema={validationSchema}
                         onSubmit={(values) => {
-                            guardarComentario(String(values.nombre), calificaSelected, String(values.comentario))
-                            console.log(values)
-                            console.log('califica',calificaSelected)
+                            guardarComentario(event, String(values.nombre), calificaSelected, String(values.comentario))
+                            //console.log(values)
+                            //console.log('califica', calificaSelected)
                         }}
                     >
                         {({

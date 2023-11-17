@@ -14,7 +14,9 @@ const Comments = ({route}) => {
 
   return (
     <ScrollView style={styles.container}>
-      <Text></Text>
+      <View>
+        <Text>dddd</Text>
+      </View>      
     </ScrollView>
   )
 }

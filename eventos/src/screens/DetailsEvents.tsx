@@ -1,5 +1,5 @@
-import { ScrollView, StyleSheet, Text, View, Image, Pressable,Button,FlatList } from 'react-native'
-import React, { useState,useEffect, PropsWithChildren } from 'react'
+import { ScrollView, StyleSheet, Text, View, Image, Pressable, Button, FlatList } from 'react-native'
+import React, { useState, useEffect, PropsWithChildren } from 'react'
 
 // react navigation
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
@@ -7,131 +7,101 @@ import { useNavigation } from "@react-navigation/native";
 
 import { RootStackPramList } from "../../App"
 import Events from '../components/Eventos';
+import Separator from '../components/Separator'
+import Comentarios from '../components/Comentarios';
 
 type DetailsEventProps = NativeStackScreenProps<RootStackPramList, "DetailsEvents">
 
-const DetailsEvents = ({route,navigation}) => {
-  const {event} = route.params
+const DetailsEvents = ({ route, navigation }) => {
+  const { event } = route.params
 
-  const [coment1,setComment]=useState(
+  /*const [coment1, setComment] = useState(
     event
-)
-useEffect(() => {
-      coment1.comentarios[event.id-1]={
-        id:'4',
-        name:'leandro'
-      }
-      setComment(coment1)
-  
-}, []);
-  
+  )
+  useEffect(() => {
+    coment1.comentarios[event.id - 1] = {
+      id: '4',
+      name: 'leandro'
+    }
+    setComment(coment1)
+
+  }, []);*/
+
 
   return (
     <View>
-       <Text>{event.id}</Text>
-  <ScrollView
-  horizontal={true}
-  showsHorizontalScrollIndicator={false}
-  pagingEnabled={true}
-  >
+      <View>
+        <Image
+          source={{ uri: event.imageUrl }}
+          style={styles.imagen}
+        />
+      </View>
+      <View>
+        <Text style={styles.titulo}>{event.name}</Text>
+        <Text style={styles.textos}>{event.fecha}</Text>
+        <Text style={styles.textos}>{event.lugar}</Text>
+        <Text style={styles.textos}>{event.descripcion}</Text>
+        <Text style={styles.titulo}>Comentarios</Text>
+      </View>
 
-  <Pressable
-              onPress={() => {
-                navigation.navigate('FormComments',{event:coment1})
-              }}
-            >
-  <Text style={styles.tagBadge}>Comentario</Text>
-            </Pressable>
-  </ScrollView>
+      <View >        
+          <FlatList
+            data={event.comentarios}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <Comentarios comment={item} />
+            )}
+          />
+      </View>
 
-  </View>
-  
+      <Pressable
+        style={styles.btnIrComentarios}
+        onPress={() => {
+          navigation.navigate('FormComments', { event: event })
+        }}
+      >
+        <Text style={styles.textBtn}>Adicionar Comentario</Text>
+      </Pressable>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 18,
-    backgroundColor: '#FFFFFF',
-  },
-  image: {
-    width: 300,
-    height: 450,
+  imagen: {
+    width: '60%',
+    height: 150,
     resizeMode: 'contain',
+    alignSelf: 'center',
+    borderRadius: 20
   },
-  rowContainer: {
-    flexDirection: 'row',
-  },
-  name: {
+  titulo: {
+    fontSize: 16,
+    fontWeight: '800',
+    paddingTop: 10,
     marginBottom: 4,
-
-    fontSize: 20,
+    textAlign: 'center'
+  },
+  textos: {
+    fontSize: 12,
     fontWeight: '500',
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginBottom: 10,
+    textAlign: 'left'
   },
-  ratingContainer: {
-    marginVertical: 12,
+  btnIrComentarios: {
+    width: '50%',
+    padding: 5,
+    borderRadius: 8,
+    marginTop:10,
+    marginHorizontal: 8,
+    backgroundColor: '#065CC6',
+    alignSelf: 'center'
   },
-  priceContainer: {
-    paddingVertical: 12,
-    paddingHorizontal: 12,
-
-    marginBottom: 12,
-
-    borderRadius: 6,
-    backgroundColor: '#deffeb',
-  },
-  rating: {
-    marginRight: 4,
-
-    borderRadius: 4,
-    paddingHorizontal: 8,
-    justifyContent: 'center',
-    backgroundColor: '#008c00',
-  },
-  ratingText: {
-    color: '#fff',
-    fontSize: 14,
-    fontWeight: '600',
-  },
-  ratingCount: {
-    fontSize: 14,
-    color: '#878787',
-  },
-  originalPrice: {
-    fontSize: 18,
-    fontWeight: '600',
-    marginRight: 8,
-
-    color: 'rgba(0, 0, 0, 0.5)',
-    textDecorationLine: 'line-through',
-  },
-  discountPrice: {
-    fontSize: 18,
-    color: '#000000',
-    fontWeight: '600',
-  },
-  offerPercentage: {
-    fontSize: 17,
-    fontWeight: '600',
-    color: '#4bb550',
-
-    marginRight: 8,
-  },
-  badge: {
-    margin: 2,
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-  },
-  tagBadge: {
-    paddingVertical: 2,
-    paddingHorizontal: 4,
-
-    borderWidth: 1,
-    borderRadius: 4,
-    borderColor: 'rgba(0, 0, 0, 0.5)',
-
-    color: 'rgba(0, 0, 0, 0.8)',
-  },
+  textBtn: {
+    color: '#ffffff',
+    textAlign: 'center',
+  }
 });
 
 

@@ -222,13 +222,13 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
         await new Promise((r) => setTimeout(r, 500));
         navigation.navigate('DetailsEvents',
         {event:{
-            id:'38',
-            name:'luis',
-            imageUrl:'google.com',
-            fecha:'12/12/12',
-            lugar:'ec',
-            descripcion:'as',
-            comentarios:[{id:'21',name:values.nombre,calificacion:3,comentario:values.comentario}]
+            id:event.id,
+            name:event.name,
+            imageUrl:event.imageUrl,
+            fecha:event.fecha,
+            lugar:event.lugar,
+            descripcion:event.descripcion,
+            comentarios:[{id:'1',name:values.nombre,calificacion:3,comentario:values.comentario}]
         }}
 
         )

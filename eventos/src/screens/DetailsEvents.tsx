@@ -44,6 +44,10 @@ const DetailsEvents = ({ route, navigation }) => {
       <View>
         <Text style={styles.titulo}>{comentario.name}</Text>
         <Text style={styles.textos}>{comentario.fecha}</Text>
+        <Text style={styles.textos}>{comentario.lugar}</Text>
+
+        <Text style={styles.textos}>{comentario.descripcion}</Text>
+
         <Text style={styles.textos}>{comentario.comentario}</Text>
 
       </View>

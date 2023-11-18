@@ -209,7 +209,7 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
                                         <Formik
       initialValues={{
         nombre: '',
-        //califica: '',
+        califica: '',
         comentario: '',
       }}
       validationSchema={validationSchema}
@@ -223,7 +223,7 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
             fecha:'12/12/12',
             lugar:'ec',
             descripcion:'as',
-            comentarios:[{id:'21',name:values.nombre,calificacion:10,comentario:'super'}]
+            comentarios:[{id:'21',name:values.nombre,calificacion:3,comentario:values.comentario}]
         }}
 
         )

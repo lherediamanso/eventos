@@ -7,18 +7,7 @@ export const EVENTOS_LIST: Eventos[] = [
     lugar: 'México',
     descripcion: 'Lorem ipsum dolor sit amet, quam vel, justo nulla eu curabitur erat vestibulum platea. ',
     comentarios: [
-      {
-        id: '1',
-        name: 'Ultricies',
-        calificacion: 6,
-        comentario: 'A dui, maecenas dictumst.'
-      },
-      {
-        id: '2',
-        name: 'Luctus',
-        calificacion: 6,
-        comentario: 'Velit lectus, faucibus a vitae.'
-      }
+      
     ]
   },
   {

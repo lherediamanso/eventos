@@ -24,11 +24,13 @@ const DetailsEvents = ({ route, navigation }) => {
   )
   
   useEffect(() => {
-    i+1
 
-    //console.log(event.comentarios.push({id:'20',name:'li',calificacion:12,comentario:'afasf'}))
+    if(route.params?.event.comentarios[0])
     
-    comentario.comentarios.push(route.params?.event.comentarios[0])
+    {
+      comentario.comentarios.push(route.params?.event.comentarios[0])
+
+    }
 }, [route.params?.event]);
 
   return (

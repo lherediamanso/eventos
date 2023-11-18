@@ -41,21 +41,21 @@ const App = () => {
         name="DetailsEvents"
         component={DetailsEvents}
         options={{
-          title: "DetailsEvents"
+          title: "Detalle evento"
         }}
         />
          <Stack.Screen
         name="Comments"
         component={Comments}
         options={{
-          title: "Comments"
+          title: "Comentarios"
         }}
         />
         <Stack.Screen
         name="FormComments"
         component={FormComments}
         options={{
-          title: "Comments"
+          title: "Adicionar comentarios"
         }}
         />
       <Stack.Screen

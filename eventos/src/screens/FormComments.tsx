@@ -93,6 +93,11 @@ const styles = StyleSheet.create({
         width: 0,
         height: 0,
     },
+    //Errores
+    error:{
+        color: 'red',
+        fontStyle:'italic'
+    }
 });
 
 const optionsCalifica: ICheckboxButton[] = [
@@ -191,11 +196,11 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
     //Validaciones del formulario
     const validationSchema = Yup.object().shape({
         nombre: Yup.string()
-           // .required('')
-            .min(3, ''),
+            .required('Campo requerido')
+            .min(3, 'Debe contener al menos 3 caracteres'),
         comentario: Yup.string()
-           // .required('')
-            .min(10, ''),
+            .required('Campo requerido')
+            .min(10, 'Debe contener al menos 3 caracteres'),
     });
 
 
@@ -250,8 +255,8 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
                                     placeholder='Nombre'
                                     placeholderTextColor="#878787"
                                     keyboardType='default'
-                                    error={errors.nombre}
                                 />
+                                {errors.nombre && <Text style={styles.error}>{errors.nombre}</Text>}
 
                                 <View style={styles.container}>
                                     {horizontalCheckboxGroupContainer()}
@@ -270,6 +275,7 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
                                     onChange={handleChange('comentario')}
                                     rows="5"
                                 />
+                                {errors.comentario && <Text style={styles.error}>{errors.comentario}</Text>}
 
                                 {/* BOTONES */}
 

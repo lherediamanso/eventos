@@ -18,9 +18,9 @@ export type RootStackPramList = {
   Index: undefined;
   Comments:undefined;
   Details: {product:Product};
-  DetailsEvents: {product:Product};
+  DetailsEvents: {event:Eventos};
   FormComments: {event:Eventos};
-  Eventos: {events:Eventos};
+  Eventos: {event:Eventos};
 }
 
 

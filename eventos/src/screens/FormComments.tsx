@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Formik } from 'formik';
+import { Formik, Field, Form } from 'formik';
+
 import * as Yup from 'yup';
 import {
     SafeAreaView,
@@ -16,6 +17,7 @@ import BouncyCheckboxGroup, {
 //React navigation
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { RootStackPramList } from "../../App"
+import { Button } from 'react-native';
 
 const _iconStyle = (borderColor: string) => ({
     height: 50,
@@ -189,10 +191,10 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
     //Validaciones del formulario
     const validationSchema = Yup.object().shape({
         nombre: Yup.string()
-            .required('')
+           // .required('')
             .min(3, ''),
         comentario: Yup.string()
-            .required('')
+           // .required('')
             .min(10, ''),
     });
 
@@ -203,28 +205,39 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
                 <View style={styles.formContainer}>
                     <Text style={styles.title}>Adicionar Comentario</Text>
                     {/* COMPONENTE FORMIK */}
-                    <Formik
-                        initialValues={{
-                            nombre: '',
-                            califica: '',
-                            comentario: ''
-                        }}
-                        validationSchema={validationSchema}
-                        onSubmit={(values) => {
-                            guardarComentario(event, String(values.nombre), calificaSelected, String(values.comentario))
-                            //console.log(values)
-                            //console.log('califica', calificaSelected)
-                        }}
-                    >
-                        {({
-                            values,
-                            errors,
-                            touched,
-                            isValid,
-                            handleChange,
-                            handleSubmit,
-                        }) => (
-                            <>
+                                        {/* COMPONENTE FORMIK */}
+                                        <Formik
+      initialValues={{
+        nombre: '',
+        //califica: '',
+        comentario: '',
+      }}
+      validationSchema={validationSchema}
+      onSubmit={async (values) => {
+        await new Promise((r) => setTimeout(r, 500));
+        navigation.navigate('DetailsEvents',
+        {event:{
+            id:'38',
+            name:'luis',
+            imageUrl:'google.com',
+            fecha:'12/12/12',
+            lugar:'ec',
+            descripcion:'as',
+            comentarios:[{id:'21',name:values.nombre,calificacion:10,comentario:'super'}]
+        }}
+
+        )
+        //alert(JSON.stringify(values, null, 2));
+      }}
+    >
+         {({ values,
+            errors,
+            touched,
+            isValid,
+            handleChange,
+            handleSubmit, }) => (
+
+<>
                                 <View style={styles.inputWrapper}>
                                     <View style={styles.inputColumn}>
                                         <Text style={styles.heading}>Nombre</Text>
@@ -270,9 +283,8 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
                                     </TouchableOpacity>
                                 </View>
                             </>
-                        )}
-                    </Formik>
-                    {/* COMPONENTE FORMIK */}
+)}
+    </Formik>
                 </View>
             </SafeAreaView>
         </>

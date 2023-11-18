@@ -11,42 +11,44 @@ import Separator from '../components/Separator'
 import Comentarios from '../components/Comentarios';
 
 type DetailsEventProps = NativeStackScreenProps<RootStackPramList, "DetailsEvents">
-
+const i=0
 const DetailsEvents = ({ route, navigation }) => {
+  
   const { event } = route.params
 
-  /*const [coment1, setComment] = useState(
+  const [comentario, setcomentario] = useState(
+
+    
     event
+  
   )
+  
   useEffect(() => {
-    coment1.comentarios[event.id - 1] = {
-      id: '4',
-      name: 'leandro'
-    }
-    setComment(coment1)
+    i+1
 
-  }, []);*/
-
+    //console.log(event.comentarios.push({id:'20',name:'li',calificacion:12,comentario:'afasf'}))
+    
+    comentario.comentarios.push(route.params?.event.comentarios[0])
+}, [route.params?.event]);
 
   return (
     <View>
       <View>
         <Image
-          source={{ uri: event.imageUrl }}
+          source={{ uri: comentario.imageUrl }}
           style={styles.imagen}
         />
       </View>
       <View>
-        <Text style={styles.titulo}>{event.name}</Text>
-        <Text style={styles.textos}>{event.fecha}</Text>
-        <Text style={styles.textos}>{event.lugar}</Text>
-        <Text style={styles.textos}>{event.descripcion}</Text>
-        <Text style={styles.titulo}>Comentarios</Text>
+        <Text style={styles.titulo}>{comentario.name}</Text>
+        <Text style={styles.textos}>{comentario.fecha}</Text>
+        <Text style={styles.textos}>{comentario.comentario}</Text>
+
       </View>
 
       <View >        
           <FlatList
-            data={event.comentarios}
+            data={comentario.comentarios}
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
               <Comentarios comment={item} />

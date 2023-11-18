@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Formik, Field, Form } from 'formik';
-
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
     SafeAreaView,
@@ -17,7 +16,6 @@ import BouncyCheckboxGroup, {
 //React navigation
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { RootStackPramList } from "../../App"
-import { Button } from 'react-native';
 
 const _iconStyle = (borderColor: string) => ({
     height: 50,
@@ -275,7 +273,7 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
                                     onChange={handleChange('comentario')}
                                     rows="5"
                                 />
-                                {errors.comentario && <Text style={styles.error}>{errors.comentario}</Text>}
+                                {errors.comentario && <Text style={styles.error}>{errors.nombre}</Text>}
 
                                 {/* BOTONES */}
 
@@ -289,8 +287,9 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
                                     </TouchableOpacity>
                                 </View>
                             </>
-)}
-    </Formik>
+                        )}
+                    </Formik>
+                    {/* COMPONENTE FORMIK */}
                 </View>
             </SafeAreaView>
         </>

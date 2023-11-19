@@ -21,13 +21,13 @@ export const EVENTOS_LIST: Eventos[] = [
       {
         id: '1',
         name: 'Aenean',
-        calificacion: 7,
+        calificacion: 5,
         comentario: 'Dui consequat, etiam pellentesque. '
       },
       {
         id: '2',
         name: 'Consequat',
-        calificacion: 6,
+        calificacion: 3,
         comentario: 'Pulvinar molestie libero, integer nam odio. '
       }
     ]
@@ -43,13 +43,13 @@ export const EVENTOS_LIST: Eventos[] = [
       {
         id: '1',
         name: 'Arcu',
-        calificacion: 7,
+        calificacion: 4,
         comentario: 'Etiam tempor, sed sit nullam, fusce proin.'
       },
       {
         id: '2',
         name: 'Egestas',
-        calificacion: 6,
+        calificacion: 3,
         comentario: 'Mattis dignissim, aliquam sollicitudin lorem.'
       }
     ]

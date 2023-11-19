@@ -11,28 +11,15 @@ import Separator from '../components/Separator'
 import Comentarios from '../components/Comentarios';
 
 type DetailsEventProps = NativeStackScreenProps<RootStackPramList, "DetailsEvents">
-const i=0
+const i = 0
 const DetailsEvents = ({ route, navigation }) => {
-  
+
   const { event } = route.params
 
   const [comentario, setcomentario] = useState(
-
-    
     event
-  
   )
   
-  useEffect(() => {
-
-    if(route.params?.event.comentarios[0])
-    
-    {
-      comentario.comentarios.push(route.params?.event.comentarios[0])
-
-    }
-}, [route.params?.event]);
-
   return (
     <View>
       <View>
@@ -45,21 +32,19 @@ const DetailsEvents = ({ route, navigation }) => {
         <Text style={styles.titulo}>{comentario.name}</Text>
         <Text style={styles.textos}>{comentario.fecha}</Text>
         <Text style={styles.textos}>{comentario.lugar}</Text>
-
         <Text style={styles.textos}>{comentario.descripcion}</Text>
 
-        <Text style={styles.textos}>{comentario.comentario}</Text>
-
+        <Text style={styles.titulo}>Comentarios</Text>
       </View>
 
-      <View >        
-          <FlatList
-            data={comentario.comentarios}
-            keyExtractor={item => item.id}
-            renderItem={({ item }) => (
-              <Comentarios comment={item} />
-            )}
-          />
+      <View >
+        <FlatList
+          data={comentario.comentarios}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => (
+            <Comentarios comment={item} />
+          )}
+        />
       </View>
 
       <Pressable
@@ -101,7 +86,7 @@ const styles = StyleSheet.create({
     width: '50%',
     padding: 5,
     borderRadius: 8,
-    marginTop:10,
+    marginTop: 10,
     marginHorizontal: 8,
     backgroundColor: '#065CC6',
     alignSelf: 'center'

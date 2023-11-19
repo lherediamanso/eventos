@@ -1,16 +1,3 @@
-interface Product {
-    id: string;
-    name: string;
-    imageUrl: string;
-    originalPrice: number;
-    discountPrice: number;
-    offerPercentage: number;
-    rating: number;
-    ratingCount: number;
-    description:string;
-    tags: string[]
-}
-
 interface Eventos {
     id: string;
     name: string;
@@ -24,6 +11,6 @@ interface Eventos {
 interface Comentario {
     id: string;
     name: string;
-    calificacion: number;
+    calificacion: string|number;
     comentario: string;
 }

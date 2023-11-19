@@ -4,9 +4,6 @@ import React, { PropsWithChildren } from 'react'
 // react navigation
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { RootStackPramList } from "../../App"
-type ProductProps = PropsWithChildren<{
-  product: Product
-}>
 
 type DetailsProps = NativeStackScreenProps<RootStackPramList, "Details">
 

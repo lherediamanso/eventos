@@ -12,7 +12,7 @@ const Comentarios = ({ comment }: ComentariosProps) => {
   return (
     <Card style={styles.cardStile}>
       <Card.Content>
-        <Text variant="titleLarge">{comment.name} </Text>
+        <Text variant="titleLarge">{comment.name} - {comment.calificacion} </Text>
         <Text variant="bodyMedium">{comment.comentario}</Text>
       </Card.Content>
     </Card>

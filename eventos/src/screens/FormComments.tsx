@@ -92,9 +92,9 @@ const styles = StyleSheet.create({
         height: 0,
     },
     //Errores
-    error:{
+    error: {
         color: 'red',
-        fontStyle:'italic'
+        fontStyle: 'italic'
     }
 });
 
@@ -166,30 +166,13 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
                 <BouncyCheckboxGroup
                     data={optionsCalifica}
                     onChange={(selectedItem: ICheckboxButton) => {
+                        //Guardo en variable el id del valor seleccionado
                         calificaSelected = selectedItem.id
-                        console.log("Seleccionado: ", JSON.stringify(selectedItem));
                     }}
                 />
             </View>
         </>
     );
-
-    const guardarComentario = (evento: Eventos, nombre: string, califica: string | number, comentario: string) => {
-        console.log('nom', nombre)
-        console.log('cal', califica)
-        console.log('com', comentario)
-
-        let comentarioObj = {
-            id: '4',
-            name: nombre,
-            calificacion: Number(califica),
-            comentario: comentario
-        };
-        console.log(evento)
-        console.log(comentarioObj);
-
-        
-    }
 
     //Validaciones del formulario
     const validationSchema = Yup.object().shape({
@@ -198,7 +181,7 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
             .min(3, 'Debe contener al menos 3 caracteres'),
         comentario: Yup.string()
             .required('Campo requerido')
-            .min(10, 'Debe contener al menos 3 caracteres'),
+            .min(10, 'Debe contener al menos 10 caracteres'),
     });
 
 
@@ -208,39 +191,32 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
                 <View style={styles.formContainer}>
                     <Text style={styles.title}>Adicionar Comentario</Text>
                     {/* COMPONENTE FORMIK */}
-                                        {/* COMPONENTE FORMIK */}
-                                        <Formik
-      initialValues={{
-        nombre: '',
-        califica: '',
-        comentario: '',
-      }}
-      validationSchema={validationSchema}
-      onSubmit={async (values) => {
-        await new Promise((r) => setTimeout(r, 500));
-        navigation.navigate('DetailsEvents',
-        {event:{
-            id:event.id,
-            name:event.name,
-            imageUrl:event.imageUrl,
-            fecha:event.fecha,
-            lugar:event.lugar,
-            descripcion:event.descripcion,
-            comentarios:[{id:'1',name:values.nombre,calificacion:3,comentario:values.comentario}]
-        }}
+                    <Formik
+                        initialValues={{
+                            nombre: '',
+                            califica: '',
+                            comentario: '',
+                        }}
+                        validationSchema={validationSchema}
+                        onSubmit={async (values) => {
+                            await new Promise((r) => setTimeout(r, 500));
+                            let idCom:string = ''+event.comentarios.length + Number(1)
+                            event.comentarios.push({ id: idCom, name: values.nombre, calificacion: calificaSelected, comentario: values.comentario })
+                            navigation.navigate('DetailsEvents',
+                                {
+                                    event: event
+                                }
+                            )
+                        }}
+                    >
+                        {({ values,
+                            errors,
+                            touched,
+                            isValid,
+                            handleChange,
+                            handleSubmit, }) => (
 
-        )
-        //alert(JSON.stringify(values, null, 2));
-      }}
-    >
-         {({ values,
-            errors,
-            touched,
-            isValid,
-            handleChange,
-            handleSubmit, }) => (
-
-<>
+                            <>
                                 <View style={styles.inputWrapper}>
                                     <View style={styles.inputColumn}>
                                         <Text style={styles.heading}>Nombre</Text>
@@ -273,7 +249,7 @@ const FormComments = ({ navigation, route }: FormCommentsProps) => {
                                     onChange={handleChange('comentario')}
                                     rows="5"
                                 />
-                                {errors.comentario && <Text style={styles.error}>{errors.nombre}</Text>}
+                                {errors.comentario && <Text style={styles.error}>{errors.comentario}</Text>}
 
                                 {/* BOTONES */}
 

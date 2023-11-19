@@ -17,7 +17,7 @@ import Events from './src/screens/Events'
 export type RootStackPramList = {
   Index: undefined;
   Comments:undefined;
-  Details: {product:Product};
+  Details: {event:Eventos};
   DetailsEvents: {event:Eventos};
   FormComments: {event:Eventos};
   Eventos: {event:Eventos};
